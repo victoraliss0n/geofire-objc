@@ -169,7 +169,6 @@
 
 @interface GFQuery ()
 
-@property (nonatomic, strong) NSMutableDictionary *locationInfos;
 @property (nonatomic, strong) GeoFire *geoFire;
 @property (nonatomic, strong) NSSet *queries;
 @property (nonatomic, strong) NSMutableDictionary *firebaseHandles;

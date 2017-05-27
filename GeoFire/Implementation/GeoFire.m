@@ -141,7 +141,7 @@ withCompletionBlock:(GFCompletionBlock)block
 - (void)getLocationForKey:(NSString *)key withCallback:(GFCallbackBlock)callback
 {
     [[self firebaseRefForLocationKey:key]
-     observeSingleEventOfType:FIRDataEventTypeValue
+     observeEventOfType:FIRDataEventTypeValue
      withBlock:^(FIRDataSnapshot *snapshot) {
          dispatch_async(self.callbackQueue, ^{
              if (snapshot.value == nil || [snapshot.value isMemberOfClass:[NSNull class]]) {

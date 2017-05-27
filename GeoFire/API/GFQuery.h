@@ -50,6 +50,7 @@ typedef void (^GFReadyBlock) ();
 /**
  * The GeoFire this GFQuery object uses.
  */
+@property (nonatomic, strong) NSMutableDictionary *locationInfos;
 @property (nonatomic, strong, readonly) GeoFire *geoFire;
 
 /*!
