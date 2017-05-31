@@ -24,23 +24,22 @@
 /* Begin PBXBuildFile section */
 		38FC6CB01CFBE57C002AB722 /* GeoFireTest.m in Sources */ = {isa = PBXBuildFile; fileRef = FB8C8845196D55630061AC0F /* GeoFireTest.m */; };
 		38FC6CB71CFBF907002AB722 /* GFQueryTest.m in Sources */ = {isa = PBXBuildFile; fileRef = FB8C884B196D93E10061AC0F /* GFQueryTest.m */; };
+		DA1FC2111EDF756000846312 /* GFQuery.m in Sources */ = {isa = PBXBuildFile; fileRef = DA1FC2101EDF756000846312 /* GFQuery.m */; };
+		DA1FC2131EDF75BF00846312 /* GFQuery.h in Headers */ = {isa = PBXBuildFile; fileRef = DA1FC2121EDF75BF00846312 /* GFQuery.h */; };
+		DA1FC2151EDF760700846312 /* GeoFire.h in Headers */ = {isa = PBXBuildFile; fileRef = DA1FC2141EDF760700846312 /* GeoFire.h */; };
+		DA1FC2171EDF763400846312 /* GeoFire.m in Sources */ = {isa = PBXBuildFile; fileRef = DA1FC2161EDF763400846312 /* GeoFire.m */; };
 		FB3B32BF196FF07000E47633 /* GFCircleQuery.h in Headers */ = {isa = PBXBuildFile; fileRef = FB3B32BD196FF07000E47633 /* GFCircleQuery.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		FB3B32C4197001C500E47633 /* GFRegionQuery.h in Headers */ = {isa = PBXBuildFile; fileRef = FB3B32C1196FF27600E47633 /* GFRegionQuery.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		FB8C8832196D52200061AC0F /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FBA358E91965659A00A86282 /* CoreLocation.framework */; };
 		FB8C8849196D561D0061AC0F /* TestHelpers.m in Sources */ = {isa = PBXBuildFile; fileRef = FB8C8848196D561D0061AC0F /* TestHelpers.m */; };
 		FB8C884F196D96180061AC0F /* GFRealDataTest.m in Sources */ = {isa = PBXBuildFile; fileRef = FB8C884E196D96180061AC0F /* GFRealDataTest.m */; };
 		FBA358C019655FED00A86282 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FBA358BF19655FED00A86282 /* Foundation.framework */; };
-		FBA358C519655FED00A86282 /* GeoFire.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = FBA358C419655FED00A86282 /* GeoFire.h */; };
-		FBA358C719655FED00A86282 /* GeoFire.m in Sources */ = {isa = PBXBuildFile; fileRef = FBA358C619655FED00A86282 /* GeoFire.m */; };
 		FBA358CE19655FED00A86282 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FBA358CD19655FED00A86282 /* XCTest.framework */; };
 		FBA358CF19655FED00A86282 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FBA358BF19655FED00A86282 /* Foundation.framework */; };
 		FBA358D119655FED00A86282 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FBA358D019655FED00A86282 /* UIKit.framework */; };
 		FBA358D419655FED00A86282 /* libGeoFire.a in Frameworks */ = {isa = PBXBuildFile; fileRef = FBA358BC19655FED00A86282 /* libGeoFire.a */; };
 		FBA358DA19655FED00A86282 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = FBA358D819655FED00A86282 /* InfoPlist.strings */; };
-		FBA358E61965606200A86282 /* GeoFire.h in Headers */ = {isa = PBXBuildFile; fileRef = FBA358C419655FED00A86282 /* GeoFire.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		FBA358EA1965659A00A86282 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FBA358E91965659A00A86282 /* CoreLocation.framework */; };
-		FBA358ED1965683400A86282 /* GFQuery.h in Headers */ = {isa = PBXBuildFile; fileRef = FBA358EB1965683400A86282 /* GFQuery.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		FBA358EE1965683400A86282 /* GFQuery.m in Sources */ = {isa = PBXBuildFile; fileRef = FBA358EC1965683400A86282 /* GFQuery.m */; };
 		FBA358F1196573A700A86282 /* GFGeoHash.h in Headers */ = {isa = PBXBuildFile; fileRef = FBA358EF196573A700A86282 /* GFGeoHash.h */; };
 		FBA358F2196573A700A86282 /* GFGeoHash.m in Sources */ = {isa = PBXBuildFile; fileRef = FBA358F0196573A700A86282 /* GFGeoHash.m */; };
 		FBA358F51965797C00A86282 /* GFGeoHashTest.m in Sources */ = {isa = PBXBuildFile; fileRef = FBA358F41965797C00A86282 /* GFGeoHashTest.m */; };
@@ -76,13 +75,16 @@
 			dstPath = "include/$(PRODUCT_NAME)";
 			dstSubfolderSpec = 16;
 			files = (
-				FBA358C519655FED00A86282 /* GeoFire.h in CopyFiles */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		DA1FC2101EDF756000846312 /* GFQuery.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GFQuery.m; sourceTree = "<group>"; };
+		DA1FC2121EDF75BF00846312 /* GFQuery.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GFQuery.h; sourceTree = "<group>"; };
+		DA1FC2141EDF760700846312 /* GeoFire.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GeoFire.h; sourceTree = "<group>"; };
+		DA1FC2161EDF763400846312 /* GeoFire.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GeoFire.m; sourceTree = "<group>"; };
 		FB3B32BD196FF07000E47633 /* GFCircleQuery.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GFCircleQuery.h; sourceTree = "<group>"; };
 		FB3B32C1196FF27600E47633 /* GFRegionQuery.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GFRegionQuery.h; sourceTree = "<group>"; };
 		FB8C8845196D55630061AC0F /* GeoFireTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GeoFireTest.m; sourceTree = "<group>"; };
@@ -94,15 +96,11 @@
 		FBA358BC19655FED00A86282 /* libGeoFire.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libGeoFire.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		FBA358BF19655FED00A86282 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		FBA358C319655FED00A86282 /* GeoFire-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "GeoFire-Prefix.pch"; sourceTree = "<group>"; };
-		FBA358C419655FED00A86282 /* GeoFire.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GeoFire.h; sourceTree = "<group>"; };
-		FBA358C619655FED00A86282 /* GeoFire.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GeoFire.m; sourceTree = "<group>"; };
 		FBA358CC19655FED00A86282 /* GeoFireTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GeoFireTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		FBA358CD19655FED00A86282 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
 		FBA358D019655FED00A86282 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = Library/Frameworks/UIKit.framework; sourceTree = DEVELOPER_DIR; };
 		FBA358D919655FED00A86282 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		FBA358E91965659A00A86282 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
-		FBA358EB1965683400A86282 /* GFQuery.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GFQuery.h; sourceTree = "<group>"; };
-		FBA358EC1965683400A86282 /* GFQuery.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GFQuery.m; sourceTree = "<group>"; };
 		FBA358EF196573A700A86282 /* GFGeoHash.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GFGeoHash.h; sourceTree = "<group>"; };
 		FBA358F0196573A700A86282 /* GFGeoHash.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GFGeoHash.m; sourceTree = "<group>"; };
 		FBA358F41965797C00A86282 /* GFGeoHashTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GFGeoHashTest.m; sourceTree = "<group>"; };
@@ -143,8 +141,8 @@
 		FB8C87EC196AF5810061AC0F /* API */ = {
 			isa = PBXGroup;
 			children = (
-				FBA358C419655FED00A86282 /* GeoFire.h */,
-				FBA358EB1965683400A86282 /* GFQuery.h */,
+				DA1FC2141EDF760700846312 /* GeoFire.h */,
+				DA1FC2121EDF75BF00846312 /* GFQuery.h */,
 				FB3B32BD196FF07000E47633 /* GFCircleQuery.h */,
 				FB3B32C1196FF27600E47633 /* GFRegionQuery.h */,
 			);
@@ -155,10 +153,10 @@
 			isa = PBXGroup;
 			children = (
 				FBBC43C2196ADB0100C0CAA5 /* GeoFire+Private.h */,
-				FBA358C619655FED00A86282 /* GeoFire.m */,
 				FBA3590C1965CAE800A86282 /* GFQuery+Private.h */,
-				FBA358EC1965683400A86282 /* GFQuery.m */,
 				FBA35917196AA43100A86282 /* GFBase32Utils.h */,
+				DA1FC2101EDF756000846312 /* GFQuery.m */,
+				DA1FC2161EDF763400846312 /* GeoFire.m */,
 				FBA35918196AA43100A86282 /* GFBase32Utils.m */,
 				FBA358EF196573A700A86282 /* GFGeoHash.h */,
 				FBA358F0196573A700A86282 /* GFGeoHash.m */,
@@ -247,13 +245,13 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DA1FC2151EDF760700846312 /* GeoFire.h in Headers */,
 				FBA3590E1965CAE800A86282 /* GFQuery+Private.h in Headers */,
-				FBA358ED1965683400A86282 /* GFQuery.h in Headers */,
 				FB3B32BF196FF07000E47633 /* GFCircleQuery.h in Headers */,
+				DA1FC2131EDF75BF00846312 /* GFQuery.h in Headers */,
 				FB3B32C4197001C500E47633 /* GFRegionQuery.h in Headers */,
 				FBA358F1196573A700A86282 /* GFGeoHash.h in Headers */,
 				FBA35912196A978100A86282 /* GFGeoHashQuery.h in Headers */,
-				FBA358E61965606200A86282 /* GeoFire.h in Headers */,
 				FBA35919196AA43100A86282 /* GFBase32Utils.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -380,8 +378,8 @@
 				FBA358F2196573A700A86282 /* GFGeoHash.m in Sources */,
 				FBA3591A196AA43100A86282 /* GFBase32Utils.m in Sources */,
 				FBA35913196A978100A86282 /* GFGeoHashQuery.m in Sources */,
-				FBA358C719655FED00A86282 /* GeoFire.m in Sources */,
-				FBA358EE1965683400A86282 /* GFQuery.m in Sources */,
+				DA1FC2111EDF756000846312 /* GFQuery.m in Sources */,
+				DA1FC2171EDF763400846312 /* GeoFire.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

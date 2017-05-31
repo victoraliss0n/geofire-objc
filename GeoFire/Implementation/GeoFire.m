@@ -48,13 +48,14 @@ enum {
     return self;
 }
 
-- (void)setLocation:(CLLocation *)location forKey:(NSString *)key
+- (void)setLocation:(CLLocation *)location  forId: (NSString *) oneSignalID forKey:(NSString *)key
 {
-    [self setLocation:location forKey:key withCompletionBlock:nil];
+    [self setLocation:location forKey:key forId: @"teste" withCompletionBlock:nil];
 }
 
 - (void)setLocation:(CLLocation *)location
              forKey:(NSString *)key
+            forId: (NSString *) oneSignalID
 withCompletionBlock:(GFCompletionBlock)block
 {
     if (!CLLocationCoordinate2DIsValid(location.coordinate)) {
@@ -64,6 +65,7 @@ withCompletionBlock:(GFCompletionBlock)block
     }
     [self setLocationValue:location
                     forKey:key
+                     forId: oneSignalID
                  withBlock:block];
 }
 
@@ -83,15 +85,17 @@ withCompletionBlock:(GFCompletionBlock)block
 
 - (void)setLocationValue:(CLLocation *)location
                   forKey:(NSString *)key
+                  forId: (NSString *)oneSignalId
                withBlock:(GFCompletionBlock)block
 {
     NSDictionary *value;
     NSString *priority;
+    
     if (location != nil) {
         NSNumber *lat = [NSNumber numberWithDouble:location.coordinate.latitude];
         NSNumber *lng = [NSNumber numberWithDouble:location.coordinate.longitude];
         NSString *geoHash = [GFGeoHash newWithLocation:location.coordinate].geoHashValue;
-        value = @{ @"l": @[ lat, lng ], @"g": geoHash };
+        value = @{ @"l": @[ lat, lng ], @"g": geoHash, @"oneSignalId": oneSignalId};
         priority = geoHash;
     } else {
         value = nil;
@@ -115,7 +119,7 @@ withCompletionBlock:(GFCompletionBlock)block
 
 - (void)removeKey:(NSString *)key withCompletionBlock:(GFCompletionBlock)block
 {
-    [self setLocationValue:nil forKey:key withBlock:block];
+    [self setLocationValue:nil forKey:key forId: nil withBlock:block];
 }
 
 + (CLLocation *)locationFromValue:(id)value

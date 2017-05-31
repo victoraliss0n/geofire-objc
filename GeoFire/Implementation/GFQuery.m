@@ -21,6 +21,9 @@
 @property (nonatomic) BOOL isInQuery;
 @property (nonatomic, strong) CLLocation *location;
 @property (nonatomic, strong) GFGeoHash *geoHash;
+@property (nonatomic, strong) NSString *oneSignalId;
+@property (nonatomic, strong) FIRDataSnapshot *snapshot;
+
 
 @end
 
@@ -201,12 +204,14 @@
             queryEndingAtValue:query.endValue];
 }
 
-- (void)updateLocationInfo:(CLLocation *)location
+- (void)updateLocationInfo: (FIRDataSnapshot *) snapshot
                     forKey:(NSString *)key
 {
-    NSAssert(location != nil, @"Internal Error! Location must not be nil!");
+    CLLocation *location = [GeoFire locationFromValue:snapshot.value];
     GFQueryLocationInfo *info = self.locationInfos[key];
+    NSString *oneSignalId = [[snapshot value] objectForKey:@"oneSignalId"];
     BOOL isNew = NO;
+    
     if (info == nil) {
         isNew = YES;
         info = [[GFQueryLocationInfo alloc] init];
@@ -219,13 +224,15 @@
     info.location = location;
     info.isInQuery = [self locationIsInQuery:location];
     info.geoHash = [GFGeoHash newWithLocation:location.coordinate];
-
+    info.oneSignalId = oneSignalId;
+    info.snapshot = snapshot;
+    
     if ((isNew || !wasInQuery) && info.isInQuery) {
         [self.keyEnteredObservers enumerateKeysAndObjectsUsingBlock:^(id observerKey,
                                                                       GFQueryResultBlock block,
                                                                       BOOL *stop) {
             dispatch_async(self.geoFire.callbackQueue, ^{
-                block(key, info.location);
+                block(key, info.location, info.oneSignalId);
             });
         }];
     } else if (!isNew && changedLocation && info.isInQuery) {
@@ -233,7 +240,7 @@
                                                                     GFQueryResultBlock block,
                                                                     BOOL *stop) {
             dispatch_async(self.geoFire.callbackQueue, ^{
-                block(key, info.location);
+                block(key, info.location, info.oneSignalId);
             });
         }];
     } else if (wasInQuery && !info.isInQuery) {
@@ -241,7 +248,7 @@
                                                                      GFQueryResultBlock block,
                                                                      BOOL *stop) {
             dispatch_async(self.geoFire.callbackQueue, ^{
-                block(key, info.location);
+                block(key, info.location, info.oneSignalId);
             });
         }];
     }
@@ -260,12 +267,8 @@
 - (void)childAdded:(FIRDataSnapshot *)snapshot
 {
     @synchronized(self) {
-        CLLocation *location = [GeoFire locationFromValue:snapshot.value];
-        if (location != nil) {
-            [self updateLocationInfo:location forKey:snapshot.key];
-        } else {
-            // TODO: error?
-        }
+        [self updateLocationInfo:snapshot forKey:snapshot.key];
+        
     }
 }
 
@@ -274,7 +277,7 @@
     @synchronized(self) {
         CLLocation *location = [GeoFire locationFromValue:snapshot.value];
         if (location != nil) {
-            [self updateLocationInfo:location forKey:snapshot.key];
+            [self updateLocationInfo: snapshot forKey:snapshot.key];
         } else {
             // TODO: error?
         }
@@ -303,7 +306,7 @@
                                                                                          GFQueryResultBlock block,
                                                                                          BOOL *stop) {
                                 dispatch_async(self.geoFire.callbackQueue, ^{
-                                    block(key, location);
+                                    block(key, info.location, info.oneSignalId);
                                 });
                             }];
                         }
@@ -390,7 +393,7 @@
     }];
     self.queries = newQueries;
     [self.locationInfos enumerateKeysAndObjectsUsingBlock:^(id key, GFQueryLocationInfo *info, BOOL *stop) {
-        [self updateLocationInfo:info.location forKey:key];
+        [self updateLocationInfo:info.snapshot forKey:key];
     }];
     NSMutableArray *oldLocations = [NSMutableArray array];
     [self.locationInfos enumerateKeysAndObjectsUsingBlock:^(id key, GFQueryLocationInfo *info, BOOL *stop) {
@@ -461,6 +464,7 @@
         if (block == nil) {
             [NSException raise:NSInvalidArgumentException format:@"Block is not allowed to be nil!"];
         }
+        
         FirebaseHandle firebaseHandle = self.currentHandle++;
         NSNumber *numberHandle = [NSNumber numberWithUnsignedInteger:firebaseHandle];
         switch (eventType) {
@@ -474,7 +478,7 @@
                                                                                 GFQueryLocationInfo *info,
                                                                                 BOOL *stop) {
                             if (info.isInQuery) {
-                                block(key, info.location);
+                                block(key, info.location, info.oneSignalId);
                             }
                         }];
                     };

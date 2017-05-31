@@ -71,6 +71,7 @@ typedef void (^GFCallbackBlock) (CLLocation *location, NSError *error);
  * @param key The key for which this location is saved
  */
 - (void)setLocation:(CLLocation *)location
+             forId: (NSString *) oneSignalID
              forKey:(NSString *)key;
 
 /**
@@ -82,6 +83,7 @@ typedef void (^GFCallbackBlock) (CLLocation *location, NSError *error);
  */
 - (void)setLocation:(CLLocation *)location
              forKey:(NSString *)key
+             forId: (NSString *) oneSignalID
 withCompletionBlock:(GFCompletionBlock)block;
 
 /**

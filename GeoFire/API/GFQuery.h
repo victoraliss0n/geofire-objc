@@ -39,7 +39,7 @@ typedef NS_ENUM(NSUInteger, GFEventType) {
     GFEventTypeKeyMoved
 };
 
-typedef void (^GFQueryResultBlock) (NSString *key, CLLocation *location);
+typedef void (^GFQueryResultBlock) (NSString *key, CLLocation *location, NSString *oneSignalId);
 typedef void (^GFReadyBlock) ();
 
 /**
@@ -50,8 +50,8 @@ typedef void (^GFReadyBlock) ();
 /**
  * The GeoFire this GFQuery object uses.
  */
-@property (nonatomic, strong) NSMutableDictionary *locationInfos;
 @property (nonatomic, strong, readonly) GeoFire *geoFire;
+@property (nonatomic, strong) NSMutableDictionary *locationInfos;
 
 /*!
  Adds an observer for an event type.
