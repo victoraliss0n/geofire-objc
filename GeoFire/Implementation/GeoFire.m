@@ -50,7 +50,7 @@ enum {
 
 - (void)setLocation:(CLLocation *)location  forId: (NSString *) oneSignalID forKey:(NSString *)key
 {
-    [self setLocation:location forKey:key forId: @"teste" withCompletionBlock:nil];
+    [self setLocation:location forKey:key forId: oneSignalID withCompletionBlock:nil];
 }
 
 - (void)setLocation:(CLLocation *)location
